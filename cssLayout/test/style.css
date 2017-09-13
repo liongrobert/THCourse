@@ -1,0 +1,33 @@
+/* Complete the challenge by writing CSS below */
+
+* {
+	box-sizing: border-box;
+}
+body{
+	margin:0;
+}
+.container {
+	padding: 0 1em;
+	/*width:80%;
+	margin-left: auto;
+	margin-right:auto;*/
+}
+
+.main-header{
+	background-color: lightgreen;
+}
+.main-footer{
+	background-color: grey;color: white;
+	text-align: center;
+}
+
+
+/* Media queries*/
+
+@media (min-width:769px){
+	.container {
+		width:70%;
+		margin: 0 auto;
+		max-width: 1000px;
+	}
+}

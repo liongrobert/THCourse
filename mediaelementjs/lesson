@@ -1,0 +1,52 @@
+
+to have consistent media throughout ALL BROWSER
+http://www.mediaelementjs.com/
+Code
+
+Links to the documents in index.html
+
+<script src="js/jquery.js"></script>
+<script src="js/mediaelement-and-player.min.js"></script>
+<link href="css/mediaelementplayer.css" rel="stylesheet">
+Alternatively, you can use a CDN to serve jQuery, which is generally recommended. Instead of linking to it from the js folder as demonstrated above, use a link from this page. The script tag will look something like this:
+
+<script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+Centering an Element with CSS
+
+This video, from the Treehouse course CSS Layout Basics, covers the CSS centering technique used in this video.
+
+Code
+
+This is the code we use in the video to customize the player:
+
+$('video, audio').mediaelementplayer({
+  features: ['playpause', 'tracks', 'progress'],
+  startLanguage: 'en'
+});
+
+Final snippet to customize player:
+
+      $('video, audio').mediaelementplayer({
+        features: ['playpause', 'tracks', 'progress', 'skipback'],
+        startLanguage: 'en',
+        skipBackInterval: 4
+      });
+Minification
+
+This video, from the course Front End Performance Optimization, is a great introduction to minification.
+Demo CSS Style Page
+
+Here's a link to a demo CSS file to style the player. You might need to right-click and "save link as..." to download it, or just copy it from your browser and paste it into an empty file.
+
+The styles are basic, but should give you an idea of how to begin applying your own styles to the player! To use it, add it to the project file underneath the other styles, something like the following:
+
+    <link href="skip-back/skip-back.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- player styles below other styles -->
+    <link href="path/to/mejs-treehouse.css" rel="stylesheet">
+  </head>
+

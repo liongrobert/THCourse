@@ -1,0 +1,173 @@
+/* ================================= 
+  Base Element Styles
+==================================== */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Varela Round', sans-serif;
+	line-height: 1.6;
+	color: #3a3a3a;
+}
+
+p {
+	font-size: .95em;
+	margin-bottom: 1.8em;
+}
+
+h2,
+h3,
+a {
+	color: #093a58;
+}
+
+h2,
+h3 {
+	margin-top: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+/* ================================= 
+  Base Layout Styles
+==================================== */
+
+/* ---- Navigation ---- */
+
+.name {
+	font-size: 1.25em;
+}
+
+.name a,
+.main-nav a {
+	text-align: center;
+}
+
+.main-nav a {
+	font-size: .95em;
+	color: #3acec2;
+	text-transform: uppercase;
+}
+
+.main-nav a:hover {
+	color: #093a58;
+}
+.main-header {
+	text-align: center;
+	/*padding-bottom: 1em;*/
+}
+/* ---- Layout Containers ---- */
+.wrap {
+		min-height: calc(100vh - 89px);
+	}
+.banner {
+	color: #fff;
+	background: #3acec2;
+	text-align: center;
+	padding: 1em 0;
+}
+
+.main-footer {
+	background: #d9e4ea;
+	padding: 2em 0;
+	margin-top: 30px;
+	text-align: center;
+}
+.main-content{
+	padding: 1em 0;
+}
+
+.container {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+
+/* ---- Page Elements ---- */
+
+.logo {
+	width: 190px;
+}
+	.clearfix::after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media (min-width: 1000px) {
+	.name {
+		float: left;
+	}
+	.main-nav li {
+		float:right;
+		margin: 1em 1em;
+	}
+
+/*	.container {
+		width:85%;
+		max-width: 1150px;
+		margin: 0 auto;
+	}*/
+/*	.col {
+		padding: 0 1em;
+	}*/
+	
+	.secondary {
+		width:25%;
+		float:left;
+	}
+	.primary {
+		width:45%;
+		float:left;
+	}
+	.tertiary {
+		width:30%;
+		float:right;
+	}
+}
+@media (min-width: 500px) {
+	.container {
+		width:85%;
+		max-width: 1150px;
+		margin: 0 auto;
+	}
+	.col {
+		padding: 0 1em;
+	}
+	.feat-img {
+		width:300px;
+		float:left;
+		padding:1em;
+		border:1px solid lightgrey;
+		margin-right:1em;
+		margin-bottom:1em;
+	}
+	
+}
+
+@media (max-width: 1000px) and (min-width: 500px){
+	.secondary {
+		width:50%;
+		float:left;
+	}
+	.primary {
+		width:50%;
+		float:right;
+	}
+	.tertiary {
+		width:100%;
+		float:right;
+	}
+}

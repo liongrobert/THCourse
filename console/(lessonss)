@@ -1,0 +1,9 @@
+ls -l
+robert
+cd ~
+cd $HOME
+
+less filename
+more filename
+cat filename
+cat filename filename

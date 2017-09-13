@@ -1,0 +1,13 @@
+.navbarz > a, 
+.navbarz > a:link {
+    text-decoration: none; 
+    color:aqua !important; 
+    font-size:17px;
+}
+a:target{
+    color:white !important;
+    text-transform: uppercase; 
+}
+h3 {
+    margin-bottom: 1em;
+}

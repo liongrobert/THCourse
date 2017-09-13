@@ -1,0 +1,127 @@
+text-shadow
+http://markdotto.com/playground/3d-text/
+The text-shadow property accepts three length unit values followed by a color value:
+
+h1 {
+  text-shadow: 2px 2px 1px #222;
+}
+The first value sets the horizontal offset of the shadow. The second value sets the vertical offset. The third is an optional value that sets the blur radius of the shadow. The fourth value is the color value.
+
+
+
+
+
+box-shadow
+The order of values for box-shadow is exactly like the order of values for the text-shadow property:
+
+.wildlife {
+    box-shadow: 15px 15px 10px 20px rgba(0, 0, 0, .8);
+}
+The first value sets the horizontal offset of the shadow. The second value sets the vertical offset. The last value sets the color of the box shadow.
+
+The optional third value defines the blur radius in a box shadow. The optional fourth value defines the spread distance of a box shadow.
+
+Inner shadows
+By default, box shadows are created as drop shadows outside of the element. To create an inner shadow, we can add the keyword value inset:
+
+.wildlife {
+   box-shadow: inset 0 0 50px 10px rgba(0, 0, 0, 1);   ==> buat keren shadow inset!!!
+}
+Multiple values
+Just like the text-shadow property you can use multiple box-shadow values separated with a comma like so:
+
+.wildlife {
+    box-shadow: 15px 15px 10px 20px rgba(0, 0, 0, .8),
+                            inset 0 0 50px 10px rgba(0, 0, 0, 1);
+    }
+
+
+
+
+border radius 
+bisa utk motong sebuah div yg ada image... main di padding, 
+
+
+
+
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients
+/* A gradient tilted 45 degrees,
+   starting blue and finishing red */
+linear-gradient(45deg, blue, red);
+
+/* A gradient going from the bottom right to the top left corner,
+   starting blue and finishing red */
+linear-gradient(to left top, blue, red);
+
+/* A gradient going from the bottom to top,
+   starting blue, turning green at 40% of its length,
+   and finishing red */
+linear-gradient(0deg, blue, green 40%, red);
+
+
+/* A gradient at the center of its container,
+   starting red, changing to blue, and finishing green */
+radial-gradient(circle at center, red 0, blue, green 100%)
+
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Using_CSS_gradients#Transparency_and_gradients
+
+background:  linear-gradient( steelblue, transparent 90%), 		// LAYER PALING ATAS
+               linear-gradient(to top, white, transparent 30%),
+               #434a52 url('../img/bear.jpg') no-repeat center;	// LAYER PALING BAWAH
+.myclass {
+  background: background1, background 2, ..., backgroundN;
+}
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Background_and_Borders/Using_CSS_multiple_backgrounds
+
+
+
+
+Web fonts are special types of fonts that are optimized for screen display, and they're linked to our web pages from an external source. Web fonts eliminate the need to depend on the limited number of fonts installed on a user's computers.
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
+https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing
+https://www.fontsquirrel.com/
+
+
+
+
+@media
+by changing or using different media of communication (max-width, min-width, )
+https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
+https://developer.mozilla.org/en-US/docs/Web/CSS/@media
+https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#Media_features
+https://css-tricks.com/probably-use-initial-scale1/
+https://chrome.google.com/webstore/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh?hl=en
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">     ==> gunanya kalo di hp gak terlalu kecil (krn otomatis di hp zoom out keliatan semua content html...) jd disetting width nya ikut device-width
+https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
+https://developers.google.com/web/tools/chrome-devtools/device-mode/?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3
+
+
+
+
+
+CASCADING
+An important part of learning CSS is understanding how CSS rules are applied by the browser via the cascade. In CSS, the cascade is what determines which styles are assigned to an HTML element.
+https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade
+https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity
+
+IMPORTANCE
+SPECIFICITY
+	1. INLINE CSS
+	2. #ID => LAST (SAME) PROPERTY
+	3. CLASS
+	4. ELEMENT
+SOURCE
+
+INHERITANCE
+https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Cascade_and_inheritance
+https://developer.mozilla.org/en-US/docs/Web/CSS/inherit
+https://developer.mozilla.org/en-US/docs/Web/CSS/initial_value
+
+https://codepen.io/
+

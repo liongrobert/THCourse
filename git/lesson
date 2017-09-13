@@ -1,0 +1,195 @@
+Getting Git installed in the Treehouse Console
+
+Use git --version to find out if Git is installed.
+If it's not, install it using sudo apt-get install git. You'll need to give your password, which is mike the frog by default in the Treehouse Console (mind the spaces!)
+After it's installed, confirm everything is working properly with another use of git --version.
+If anything was amiss, post in the Treehouse Forum and someone will help you out :)
+Git Commands
+
+git init [project_name] - initializes a new repository. If project_name is provided, it creates a new project directory with that name. If not, it initializes a repository in the current directory.
+Unix Command Refresher
+
+cd - think 'change directory:' change the current working directory. Remember that ~ is a special symbol that always represents your "home" directory.
+ls - think 'list:' shows a list of all files/folders in the current directory. With the -a flag, also shows hidden files and folders.
+mkdir - think 'make directory:' creates a new directory with the specified name.
+touch - updates the "last modified" timestamp on a file to now. Also creates an empty file if the filename specified doesn't exist.
+mv - think 'move:' moves a file or directory to a new location. This also makes it a convenient way to rename files and folders.
+rm - think 'remove:' deletes the file(s)/folder(s) specified.
+
+RENAME FOLDER --> AS USUAL
+REMOVE / DELETE REPO ==> AS USUAL "rm -r FOLDERNAME/.git"
+if .git delete, then all delte....
+if .git still there, even thouh other files gone, still can recover
+
+
+
+
+
+
+
+/////////////////////////
+
+
+Editing Files
+
+I'm using the nano text editor because it's the default for the Treehouse console. If you're following along in Windows, remember to use 'notepad' every time I use 'nano,' because nano isn't available on your system. If you're following along on your own Mac/Linux machine, nano may not be your default editor. If you want to set nano as your default editor so that Git will use it, run export EDITOR=nano before you try to run any of these commands. If you're curious about what this does, there's an article explaining it here.
+
+Git Commands
+
+git add - adds files to the repository so that Git knows to track their changes.
+git commit - commits all added files to the repository as a change. With the -a flag, commits all changes to all tracked files. With the -m flag, allows you to specify a commit message directly on the command line instead of in your default editor.
+git config - allows you to make configuration changes to Git. With the --global flag, makes these changes available across your entire system.
+
+git config --global user.email "8robertliong8@gmail.com"
+git config --global user.name "Robert Leonardi"
+
+git commit -a -m "this is 2nd commit, with message"
+git commit -a
+
+
+vim namefile
+    Or you can press Esc ZZ ( Esc Shift+Z Shift+Z ) to write/save if the file was changed, then quit. Or if you don't want to save changes you can use ZQ instead. Vim has extensive help, so type Esc :help Return and you will have all your answers and even a neat tutorial. Before you enter a command, hit the Esc key.Aug 6, 2012
+
+
+///////////////////////
+
+
+Git Commands
+
+git status - show the current status of the git repository, including if there are any uncommitted changes and whether or not any of our changes have been put in the staging area.
+git add - not a new command for this video, but we learned that it does something more than just add files to be tracked - it also adds changes to the staging area.
+git commit - not a new command for this video, but we learned that without any arguments (or the -a flag) it will default to committing everything that's currently in the staging area.
+
+
+YOU CAN EVEN ADD MULTIPE Files
+git add file1 file2 file3 folder1 folder2
+git commit -a
+
+///////////////////////
+
+Git Commands
+
+git log - Show us a chronological log of all of our commits to the current repository.
+git checkout - "check out" a different version of the code from the one you're currently looking at.
+git diff - create a "diff" view to demonstrate what has changed between two different versions of your repository.
+
+
+YOU CAN GO BACK "IN TIME" ACCORDING TO THE LOG... WITH git checkout (first 5 character of the commit id)
+git log
+        commit be8c6c5591ddf89a77ab42d3cadddfe8a1da87aa
+        Author: Robert Leonardi <8robertliong8@gmail.com>
+        Date:   Wed Sep 13 19:41:49 2017 +0700
+
+            this is 5th commit (including folder)
+
+        commit d56ecb07b42ac17c29ccc904df77a919be9ca5c4
+        Author: Robert Leonardi <8robertliong8@gmail.com>
+        Date:   Wed Sep 13 19:41:15 2017 +0700
+
+            this is 4th commit
+
+        commit 1b4c3f23f2d787b49127b6841793c7c647969d4d
+        Author: Robert Leonardi <8robertliong8@gmail.com>
+        Date:   Wed Sep 13 19:40:19 2017 +0700
+
+            this is 3rd commit
+
+        commit 4b8a32d75535bb5362fd82cbdca22a5706b7819d
+        Author: Robert Leonardi <8robertliong8@gmail.com>
+        Date:   Wed Sep 13 19:37:16 2017 +0700
+
+            this is 2nd commit, with message
+
+        commit 3103cc47602e70da47b3b2e4bcd361996b75b9a2
+        Author: Robert Leonardi <8robertliong8@gmail.com>
+        Date:   Wed Sep 13 19:35:46 2017 +0700
+
+            this is 2nd commit
+
+        commit 87288632865e89c7b8fe002b4a9ab6502cbb59ae
+        Author: Robert Leonardi <8robertliong8@gmail.com>
+        Date:   Wed Sep 13 19:33:29 2017 +0700
+
+            this is 1st commit
+
+
+git checkout 4b8a32d        ==>> go back to 2nd commit with message
+
+git checkout master         ==>> go back to NOW
+
+git diff 4b8a32d master
+        diff --git a/README b/README
+        index 95d8374..df2e7c9 100644
+        --- a/README
+        +++ b/README
+        @@ -3,3 +3,5 @@ THIS IS REALLY COOL PROJECT THIS IS REALLY COOL PROJECT
+        this will help me understand and practice!
+
+        this is cool
+        +
+        +hahaha
+        diff --git a/file1 b/file1
+        new file mode 100644
+        index 0000000..e69de29
+        diff --git a/file2 b/file2
+        new file mode 100644
+        index 0000000..e69de29
+        diff --git a/file3 b/file3
+        new file mode 100644
+        index 0000000..e69de29
+        diff --git a/testFolder/file4 b/testFolder/file4
+        new file mode 100644
+        index 0000000..e69de29
+        diff --git a/testFolder/file5 b/testFolder/file5
+        new file mode 100644
+        index 0000000..e69de29
+
+
+
+
+///////////////////////
+
+BRANCHING
+One of the most powerful features that version control systems have to offer is the concept of Branching, and Git is no exception - in fact, the ease with which you can manage branches in Git is one of the big reasons behind its wide popularity. But what is “branching,” and why is it important?
+
+Git Commands
+
+git branch branchname - create a new branch named branchname.
+git checkout branchname - switch to the branch named branchname.
+git checkout -b branchname - create a new branch named branchname and switch to that branch.
+
+git branch - list all branches in the current repository and indicate which branch you're currently in.
+git branch -D branchname - delete the branch named branchname from the repository.
+
+
+////////////////////////
+
+
+Branching may be one of the most powerful features that version control has to offer, but it really shines in conjunction with another concept: merging.
+
+git merge branchname - merge the history from branchname into the current branch.
+
+
+/////////////////////////
+
+So far we've only talked about managing repositories that are local to our machine, but how do we interact with other people that want to work on the same project? This is where the concept of remote repositories comes into play.
+
+git clone - create a new repository that is a clone of a remote repository.
+git remote - list all remote repositories associated with the current repository.
+git remote add - add a new remote repository to the current repository.
+
+git remote add tommy http://tommysgitstuff.com/git_basics/cool_stuff.git
+
+The first step in working with a remote repository is often to create a local copy of it - in Git, this is called "cloning."
+
+Once we've got a clone of a remote repository, how do we send changes back and forth to keep everyone in sync? With Git we do this through two parallel operations: push and pull.
+git push - push your latest changes to a remote repository.
+git pull - pull the latest changes from a remote repository to your repository.
+
+git push origin(your "git remote") branch_name(your branch name that u wanna push)
+git remote add tommy http://tommysgitstuff.com/git_basics/cool_stuff.git (gw bikin remote "tommy" di git url origin nya , spy org lain bs push)
+git pull tommy master (ambil tommy dr master)
+
+In this video we'll go on a quick tour of the most popular option for hosting repositories on the web - GitHub - and talk about some of the value that these services typically add.
+
+

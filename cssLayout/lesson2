@@ -1,0 +1,208 @@
+
+NORMALIZE.CSS
+A CSS reset removes the subtle browser inconsistencies in margins, padding, line-height and font sizes to ensure that your layout displays as consistently as possible across all browsers.
+https://necolas.github.io/normalize.css/
+http://nicolasgallagher.com/about-normalize-css/
+http://meyerweb.com/eric/tools/css/reset/
+http://cssreset.com/
+
+
+
+WRAPPER
+Giving the wrapper a width prevents the layout from stretching too wide.
+Setting the left and right margins to the value auto centers the wrapper in the browser.
+One advantage to using <body> as the wrapper is that you don’t have to add an extra <div> in your markup to contain your layout.
+If you want to give your page a full background color or image, you'll need to apply it to the <html> element, and you can't place any elements outside of the <body>.
+Using a wrapper <div> is more appropriate if your site has elements that need to be placed outside the wrapper.
+
+
+
+If there is no content, padding, or border area to interrupt two touching margins, the margins collapse to the largest of the two margin values.
+You may experience margins collapsing in adjacent elements like paragraphs and divs.
+If a div's bottom margin is larger than the top margin of the div below it, the margin area between the divs collapses to the largest of the two margin values.
+
+
+
+It's easier to build a mobile layout when you're first starting out because you don't have to worry about any of the complex features of wider, desktop layouts.
+Mobile layouts are usually simple one column layouts
+When you use a mobile-first layout approach, you define all the common layout styles before adding any media queries.
+box-sizing: border-box; forces any padding and borders into the width and height of an element instead of expanding it.
+http://bradfrost.com/blog/web/mobile-first-responsive-web-design/
+http://zurb.com/word/mobile-first
+http://blog.teamtreehouse.com/box-sizing-secret-simple-css-layouts
+http://blog.teamtreehouse.com/take-control-of-the-box-model-with-box-sizing
+
+
+
+If you still see a gap below the footer in browsers like Firefox and IE, or when you change the browser's zoom, give .main-footer a height or min-height value of 89px.
+If a page’s content is shorter than the height of the browser, the page may display a big, undesirable gap between the bottom of the viewport and the footer. In the markup, add a new <div> that wraps the header and main container elements.
+<div class="wrap">
+  <div class="main-header">
+    <div class="container">
+      ...
+    </div>
+  </div>
+
+  <div class="container">
+    ... 
+  </div>
+</div> <!-- /.wrap -->
+Use calc() to write a mathematical expression that will subtract the footer height from the viewport's total height.
+.wrap {
+  min-height: calc(100vh - 89px);
+}
+https://snook.ca/archives/html_and_css/vm-vh-units
+https://developer.mozilla.org/en-US/docs/Web/CSS/calc
+https://developer.mozilla.org/en-US/docs/Web/CSS/min-height
+https://css-tricks.com/snippets/css/sticky-footer/
+https://teamtreehouse.com/library/the-css-calc-function
+
+
+
+
+Inline elements, like images, links and span tags, do not create line breaks in a layout; they appear on the same line as the content and elements beside them.
+Block-level elements, like divs, paragraphs and headings, stack on top of each other and expand to fill their parent.
+The browser does not apply width and height properties, or top and bottom margin settings to inline elements.
+An inline element will only accept left/right margins and any padding value.
+
+
+The display value inline-block generates an element that's like a block element but it's also flowed with surroundings as if it were an inline element.
+Setting an <a> element's display value to block lets you apply top and bottom padding values.
+
+
+
+Other methods for removing the default white space
+
+Setfont-size: 0; on the parent element. The space is a character space, so setting the font-size to zero makes the size of the space zero as well. But, you'll need to set the font size of the inline-block child elements back to your desired size.
+Adding an HTML comment between the inline-block elements will also remove the space
+Resources
+
+The browser interprets the line breaks and spaces in the HTML as content.
+The browser adds spaces between elements displayed inline and inline-block, just like it adds spaces between words.
+You can remove the gaps by applying a small, negative right margin to the elements.
+The element's font-size value affects the size of the gaps between inline and inline-block elements. The larger the font size, the more you'll need to compensate with margins, so you'll need to experiment with negative margin values.
+
+
+
+
+
+
+
+
+
+FLOAT
+https://alistapart.com/article/css-floats-101
+https://developer.mozilla.org/en-US/docs/Web/CSS/float
+By default, browsers display elements in the order they appear in the HTML source code. This order is called the normal document flow.
+Elements in the normal document flow are either block or inline; they appear stacked on top of each other or on the same line as the content and elements beside them.
+When you apply a float to an element, the element gets taken out of the normal document flow and shifted to the left or right side of its container.
+Any content next to the float flows -- or wraps -- around its left or right side.
+
+
+
+With floats, we don't have to worry about the the extra whitespace that can appear when using inline or inline-block display.
+Floated elements will sit adjacent to each other regardless of the HTML whitespace between them.
+If a block-level element contains floated elements, its height collapses.
+https://www.w3.org/TR/CSS21/visuren.html#float-position
+
+A parent container with floated elements may not always collapse to no height at all; if the container includes a padding or height value, it'll have some visible height.
+There are a two common ways to force a collapsed element to expand to the full height of its floated child elements:
+Setting the parent element's overflow value to hidden or auto
+Clearing the floats with a CSS pseudo-element
+A clearfix fixes the collapsing issue by forcing a container to expand and contain the floated elements.
+http://nicolasgallagher.com/micro-clearfix-hack/
+
+	.clearfix::after {  /*better solution than overflow: hidden*/
+		content: "";
+		display: table;
+		clear:both ;
+	}
+
+Column layout tips
+
+To add a left gutter to all but the first column, you can use this:
+
+	.col + .col {
+	  padding-left: 1em;
+	}
+To remove the right gutter from the column closest to the right edge of the page, use :last-child
+
+	.col:last-child {
+	  padding-right: 0;
+	}
+Bringing it all together
+This snippet floats all columns left and applies a right gutter. It applies a left gutter to all but the first column, so the first column will be flush with the left margin of the page. Then it removes the right gutter from last column, so that it's flush with the right margin of the page.
+
+	.col {
+	  float: left;
+	  padding-right: 1em;
+	}
+
+	.col + .col {
+	  padding-left: 1em;
+	}
+
+	.col:last-child {
+	  padding-right: 0;
+	}
+You can also apply a gutter using just a left padding or margin value, like this:
+
+	.col {
+	  float: left;
+	}
+
+	.col + .col {
+	  padding-left: 1.5em;
+	}
+Video review
+
+Use inline-block to lay out navigation items side by side or create a simple two-column layout
+Use inline-block when you need control over center and vertical alignment
+Use floats to flow content along the left or right side of an element
+Floats do not create default horizontal white space between elements
+Be aware of collapsing containers
+
+
+
+
+
+
+
+
+ABSOLUTE RELATIVE
+Elements with absolute positioning are neither affected by or do not affect other elements in the normal flow of the page.
+They are like layers in Photoshop or Illustrator; you're free to place them anywhere you wish on the page.
+Positioned elements rely on you telling the browser where to place them, using values called positioning offsets, for the element's top, right, bottom or left position.
+When you use absolute positioning, you place the absolutely positioned elements in relation to a parent container; the parent container is the positioning context.
+You can change the positioning context to other containing elements; this lets us position elements precisely where we want them.
+
+
+Absolute and relative positioning work hand in hand.
+An element with relative positioning gives you the control to absolutely position elements anywhere inside it.
+An element with absolute positioning is always relative to the first parent that has a relative position.
+If no parent element has a relative position, the browser viewport is the positioning context by default.
+https://alistapart.com/article/css-positioning-101
+https://css-tricks.com/almanac/properties/p/position/
+
+Unlike absolute positioning, an element with fixed positioning stays fixed to one spot on the page, regardless of the size of the browser window.
+Fixed headers and navigation bars are common in web design. For example, the navigation bar on Twitter.
+Fixed positioning is always relative to the browser's viewport. Like absolute positioning, you determine the fixed spot using offset values.
+When you use relative, absolute or fixed positioning on elements, you may end up with several elements occupying the same space. This can make elements overlap or completely cover up other elements from view.
+
+Positioned elements follow a stacking order that determines which elements display above or below other elements.
+By default, the stacking order of positioned elements is the order they appear in the source code.
+Elements appearing later in the code sit on top on elements appearing earlier in the code.
+The z-index property is directly related to stacking order and it's what prevents elements from overlapping other elements.
+An element with a higher z-index value overlaps an element with a lower z-index value.
+Positioned elements have a z-index of 0 by default.
+z-index works only on elements with a position property set to absolute, fixed, or relative.
+If you set a z-index on an element with no position, it will do nothing.
+Stacking contexts
+
+When you give a positioned element a z-index, you establish a new stacking context for any descendants -- or children -- of that element. It's possible to have a higher z-index element that's underneath another element with a lower z-index. Learn more about stacking contexts here.
+
+https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
+
+
+
+

@@ -1,0 +1,146 @@
+ls -l
+ROBERTTTT
+
+
+cd ~
+cd $HOME
+
+less filename
+more filename
+cat filename
+cat filename filename
+vim filename
+
+mv filename1 filename2      // or to move it
+
+cp filename filename2
+cp -r  // copy directory
+
+rm // remove
+rm -r 
+
+
+mkdir
+mkdir -p // make direcotyr/direcotyr
+
+
+Apply the patch
+
+Before getting started, or if you are revisiting this video, use the following command to prepare your system to create a new user.
+
+curl -L trhou.se/patch01 | bash
+If you receive an error when creating a new user stating that mike is already a user, the above command will remove the user so you can create him again.
+
+Commands
+
+whoami - Print which user you are
+adduser - Interactive tool for creating users
+su - Switch user
+sudo - Perform a command as the super user
+https://help.ubuntu.com/community/AddUsersHowto#Command-line
+
+
+
+Commands
+
+ls -l - List files in long format, including permissions info
+chmod - Change the permissions (mode) of a file or directory
+rwx notation
+
+In ls -l, each file has a 10 character permission representation such as drwxrwxrwx. Each character represents a permission on the file. If the letter is replaced with a dash (-), it indicates the permission is not granted. For example -rwxr-xr-x.
+
+The first character denotes if it is a dirctory. d means directory, -, means not a directory.
+
+The next 9 characters can be grouped into triplets of rwx. The leftmost triplet is for the owner of the file, the middle is the group owner, and the right is permissions for others. rwx stand for the read, write, and execute permissions, respectively.
+
+Octal notation
+
+You may read or set permissions using a 3 digit octal number. The digits represent the owner, group, and other permissions, from left to right. Each digit may be 0 through 7 representing the different combinations of read, write, and execute.
+
+To compute what each digit means, use this formula.
+
+read/r = 4
+
+write/w = 2
+
+execute/x = 1
+
+For each permission you want to grant, sum their corresponding values.
+
+chmod g+w filename
+chmod o+x filename
+chmod o-x filename
+chmod 777 filename 
+
+
+
+
+
+chown - Change the owner of a file or directory.
+
+
+
+
+
+Programs
+
+top - Show active processes
+ps - Show process statuses
+grep - Search for a pattern
+Find a process by name
+
+Use the following command to search for a running process using a pattern.
+
+ps aux | grep "SEARCH PATTERN"
+
+
+tasklist
+get-process
+
+
+
+
+
+vim
+https://www.cyberciti.biz/faq/linux-unix-vim-save-and-quit-command/
+:x
+:saveas filename
+: (ctrl z) ==============> console: fg (to go back to vim)
+console: jobs (list unfinished vim )
+
+
+
+
+
+VARIABLE=value - set a local environment variable
+export VARIABLE=value - set an environment variable that will be visible to child processes
+env - view environment variables
+bash - start a new session within your current session
+echo - display the arguments sent to echo
+
+
+
+Troubleshooting
+
+If you have deleted your hello.txt and want it back, run the following command to restore it to your home directory.
+
+curl -Lo ~/hello.txt http://trhou.se/console_hello
+
+Commands
+
+find . -name "search" - look for files with the name search starting from your current location
+grep "pattern" file - find any lines that contain the pattern in the given file
+
+
+
+
+Commands
+
+somecommand < inputfile run somecommand with input from inputfile, instead of the keyboard
+
+somecommand > outputfile run somecommand with output to outputfile instead of the terminal screen.
+
+command1 | command2 pipe the output of command1 to the input of command 2
+
+
+

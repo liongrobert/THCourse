@@ -1,0 +1,58 @@
+/* ================================= 
+  Flexbox
+==================================== */
+.container1 {
+  width: 100%;
+  display:inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center; 
+}
+.item{
+   flex-grow: 1; 
+}
+.item:nth-child(2){
+   flex-grow: 4; 
+}
+.item:nth-child(4){
+   flex-grow: 2; 
+}
+
+/* .container2 {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.container3 {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.item3:first-child {
+  margin-right: auto;
+}
+
+.container4 {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.item4:last-child {
+  margin-left: auto;
+}
+
+.container5 {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.item5:nth-child(2) {
+  margin-right: auto;
+} */
+
+
